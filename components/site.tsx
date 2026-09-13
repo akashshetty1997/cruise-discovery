@@ -66,7 +66,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           </Link>
           <nav className="nav-links">
             <Link href="/cruises">Cruises</Link>
-            <Link href="/90-day-ticker">Deals</Link>
+            <Link href="/deals">Deals</Link>
             <Link href="/cruises?destination=alaska">Destinations</Link>
             <Link href="/cruises">Cruise Lines</Link>
           </nav>
@@ -101,7 +101,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
               style={{ display: "grid", gap: 14, color: "white" }}
             >
               <Link href="/cruises">Cruises</Link>
-              <Link href="/90-day-ticker">Deals</Link>
+              <Link href="/deals">Deals</Link>
               <Link href="/cruises?destination=alaska">Destinations</Link>
               <Link href="/cruises">Cruise Lines</Link>
               <Link href="/cruises">Find a Cruise</Link>
@@ -143,7 +143,7 @@ function Footer() {
         </div>
         <div className="footer-links">
           <Link href="/cruises">Cruises</Link>
-          <Link href="/90-day-ticker">Deals</Link>
+          <Link href="/deals">Deals</Link>
           <Link href="/cruises?destination=alaska">Destinations</Link>
           <Link href="/cruises">Cruise Lines</Link>
         </div>
@@ -178,7 +178,7 @@ export function HomePage() {
             <Link className="btn btn-primary" href="/cruises">
               Find your cruise <ArrowRight size={16} />
             </Link>
-            <Link className="btn btn-ghost" href="/90-day-ticker">
+            <Link className="btn btn-ghost" href="/deals">
               Explore 90-Day Deals
             </Link>
           </div>
@@ -192,7 +192,7 @@ export function HomePage() {
               <div className="eyebrow">Last-minute fares worth exploring</div>
               <h2 className="display">A better way to find a deal.</h2>
             </div>
-            <Link className="btn btn-outline" href="/90-day-ticker">
+            <Link className="btn btn-outline" href="/deals">
               View all deals <ArrowRight size={15} />
             </Link>
           </div>
@@ -454,7 +454,7 @@ export function CruiseSearch({
         </button>
         <button
           className="chip"
-          onClick={() => (window.location.href = "/90-day-ticker")}
+          onClick={() => (window.location.href = "/deals")}
         >
           90-Day Deals
         </button>
