@@ -38,6 +38,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [expertOpen, setExpertOpen] = useState(false);
   useEffect(() => {
     const savedTheme = window.localStorage.getItem("cruise-theme");
     const prefersDark = window.matchMedia(
@@ -69,9 +70,9 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             <Link href="/cruises?destination=alaska">Destinations</Link>
             <Link href="/cruises">Cruise Lines</Link>
           </nav>
-          <div className="nav-expert">
+          <button className="nav-expert" onClick={() => setExpertOpen(true)}>
             <strong>Talk to an Expert</strong>
-          </div>
+          </button>
           <Link className="btn btn-primary nav-cta" href="/cruises">
             Find a Cruise
           </Link>
@@ -108,9 +109,23 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           </div>
         )}
       </header>
+      {expertOpen && <ExpertModal onClose={() => setExpertOpen(false)} />}
       {children}
       <Footer />
     </>
+  );
+}
+function ExpertModal({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="prototype-modal" role="dialog" aria-modal="true" aria-labelledby="expert-modal-title" onClick={onClose}>
+      <div className="prototype-modal-card" onClick={(event) => event.stopPropagation()}>
+        <button className="prototype-modal-close" onClick={onClose} aria-label="Close expert dialog"><X /></button>
+        <div className="eyebrow">Prototype interaction</div>
+        <h2 id="expert-modal-title" className="display">Talk to an Expert</h2>
+        <p>In a production experience, this would connect the traveler with a cruise specialist.</p>
+        <button className="btn btn-dark" onClick={onClose}>Continue exploring <ArrowRight size={15} /></button>
+      </div>
+    </div>
   );
 }
 function Footer() {
@@ -1249,12 +1264,11 @@ export function DetailPage({ cruise }: { cruise: Cruise }) {
               className="display"
               style={{ fontSize: "2.4rem", margin: "10px 0" }}
             >
-              Let’s start planning.
+              Talk to an Expert
             </h2>
             <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>
-              In a production experience, this would begin the quote/request
-              flow for {cruise.title}. This prototype does not book or charge
-              you.
+              In a production experience, this would connect the traveler with
+              a cruise specialist.
             </p>
             <button className="btn btn-dark" onClick={() => setQuote(false)}>
               Continue exploring <ArrowRight size={15} />
