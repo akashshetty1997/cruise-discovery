@@ -233,7 +233,7 @@ button { cursor: pointer; }
 .ticker-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; padding: 12px; border: 1px solid var(--line); border-radius: 18px; background: white; }
 .ticker-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 20px; background: white; }
 .ticker-table { width: 100%; min-width: 850px; border-collapse: collapse; text-align: left; }
-.ticker-table th { padding: 16px; color: var(--muted); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; background: #f2f7f8; }
+.ticker-table th { position: sticky; top: 0; z-index: 1; padding: 16px; color: var(--muted); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; background: #f2f7f8; }
 .ticker-table td { padding: 17px 16px; border-top: 1px solid var(--line); font-size: .8rem; }
 .ticker-table tr:hover td { background: #f9fcfc; }
 .ticker-deal { color: #087d74; font-size: 1rem; font-weight: 900; }

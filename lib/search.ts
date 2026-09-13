@@ -6,6 +6,7 @@ export function searchCruises(cruises: Cruise[], filters: CruiseFilters): Cruise
     if (filters.departurePort && cruise.departurePort.id !== filters.departurePort) return false;
     if (filters.cruiseLine && cruise.cruiseLine.id !== filters.cruiseLine) return false;
     if (filters.ship && cruise.ship.id !== filters.ship) return false;
+    if (filters.departureMonth && !cruise.departureDate.startsWith(filters.departureMonth)) return false;
     if (filters.cabin && !cruise.cabins.some((cabin) => cabin.type === filters.cabin)) return false;
     if (filters.cruiseType && cruise.cruiseType !== filters.cruiseType) return false;
     if (filters.minNights && cruise.nights < filters.minNights) return false;

@@ -18,6 +18,7 @@ export type SortOption = "recommended" | "price" | "savings" | "departure" | "sh
 export type ViewMode = "cards" | "compact";
 export interface CruiseFilters {
   destination?: string; departurePort?: string; cruiseLine?: string; ship?: string; cabin?: CabinType;
+  departureMonth?: string;
   cruiseType?: CruiseType; minNights?: number; maxNights?: number; minPrice?: number; maxPrice?: number;
   dealOnly?: boolean; returnToSamePort?: boolean; sort?: SortOption; view?: ViewMode;
 }
